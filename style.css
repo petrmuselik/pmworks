@@ -36,9 +36,17 @@ header.site, footer.site {
   font-size: 20px;
   letter-spacing: 0.5px;
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
 }
 .brand span { color: var(--accent); }
 .brand:hover { text-decoration: none; }
+.brand img {
+  height: 44px;
+  width: auto;
+  display: block;
+  border-radius: 8px;
+}
 
 nav a { color: var(--muted); }
 nav a:hover { color: var(--text); }
