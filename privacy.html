@@ -25,30 +25,47 @@
 
     <h2>What Desco stores — and where</h2>
     <p>Desco is a menu-bar utility for managing macOS Spaces. The data it creates —
-    your desktop names, colors, notes, and preferences — is stored <strong>locally
-    on your Mac</strong> in the app’s standard preferences. We never receive it, and
-    it is never uploaded to us or anyone else.</p>
+    your desktop names, colors, per-desktop notes, and preferences — is stored
+    <strong>locally on your Mac</strong>: names, colors, and preferences in the app’s
+    standard settings, and any notes as Markdown files in a “Desco Notes” folder in
+    your Documents. We never receive it, and it is never uploaded to us or anyone
+    else.</p>
+    <p>If you buy a license, Desco also keeps a small local activation record — your
+    order email and a redacted reference to your license key — in the app’s support
+    folder, so you have your own proof of purchase for any payment dispute. This stays
+    on your Mac.</p>
 
     <h2>What leaves your Mac</h2>
-    <p>The free, unlicensed app sends nothing over the network for its normal
-    operation. Only two things ever contact a server, both optional or one-time:</p>
+    <p>Desco has no servers of its own and never uploads the data you create. A free,
+    unlicensed copy makes no license-related network calls at all. In total, only
+    these requests ever leave your Mac:</p>
     <ul>
-      <li><strong>Software updates (Sparkle).</strong> If automatic updates are
-      enabled, Desco periodically checks a version feed to see whether a newer
-      release exists. This is a standard web request; it does not send your desktop
-      data. You can turn this off in Settings.</li>
-      <li><strong>License activation (only if you buy).</strong> When you purchase a
-      license and activate it, Desco makes a single request to our payments provider,
-      Lemon Squeezy, to validate the license and register this device. It sends your
-      license key and a <strong>one-way hashed device identifier</strong> (a salted
-      SHA-256 of your Mac’s hardware ID) so the license can be tied to a device seat.
-      It does not send your name, email, or any desktop data, and the raw hardware ID
-      never leaves your Mac.</li>
+      <li><strong>Software updates (Sparkle).</strong> By default Desco checks for new
+      versions automatically: it periodically fetches a version feed to see whether a
+      newer release exists. This applies to the free app too. It is a standard web
+      request that sends no personal or desktop data, and you can turn it off in
+      Settings.</li>
+      <li><strong>License activation (only if you buy).</strong> When you activate a
+      purchased license, Desco makes one request to our payments provider, Lemon
+      Squeezy, to validate the license and register this device. It sends your license
+      key and a <strong>non-personal device identifier</strong> — your Mac’s hardware
+      model (for example “MacBookPro18,1”) plus a <strong>one-way salted hash</strong>
+      of its hardware ID. It does <strong>not</strong> send your name, your computer’s
+      name, your email, or any desktop data, and the raw hardware ID never leaves your
+      Mac.</li>
+      <li><strong>License re-validation (paid licenses only).</strong> So that refunds,
+      chargebacks, and seat deactivations can take effect, a license that was activated
+      online re-confirms itself with Lemon Squeezy from time to time — roughly every
+      two weeks, when you launch the app. This sends only the same license key and
+      device identifier as activation; nothing new and nothing personal. Free,
+      time-unlocked, and offline-code users are never contacted this way.</li>
     </ul>
 
-    <h2>No tracking, no analytics, no accounts</h2>
-    <p>Desco contains no analytics, no advertising SDKs, no telemetry, and no user
-    accounts. We do not build a profile of you and we do not sell data.</p>
+    <h2>No tracking, no third-party analytics, no accounts</h2>
+    <p>Desco contains no advertising SDKs, no third-party analytics, no crash-reporting
+    services, and no user accounts. It offers an optional, off-by-default usage summary
+    that is kept as a file <strong>on your Mac</strong> and is never transmitted. We do
+    not build a profile of you and we do not sell data.</p>
 
     <h2>Purchases</h2>
     <p>Payments are handled by our Merchant of Record, <strong>Lemon Squeezy</strong>
