@@ -143,6 +143,16 @@ footer.site nav { display: flex; gap: 16px; flex-wrap: wrap; }
 .legal li { margin: 6px 0; }
 .legal a { color: var(--accent); }
 .legal-wide { max-width: 880px; }
+.legal pre.license {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
 
 /* Editions & capabilities tables: scroll horizontally on narrow viewports
    instead of squeezing columns unreadably. */

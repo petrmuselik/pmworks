@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buy Desco — PMWorks</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    // Stable checkout entry point. The app's "Buy" button opens this page
+    // (Desco Constants.Purchase.checkoutURL), so the store link can change —
+    // test → live, new product — without shipping a new app build.
+    // PLACEHOLDER: paste the Lemon Squeezy checkout link here once it exists,
+    // e.g. "https://pmworks.lemonsqueezy.com/buy/<variant-id>".
+    var CHECKOUT_URL = "";
+    if (CHECKOUT_URL) {
+      // Pass any query through (e.g. a discount code) to the checkout.
+      window.location.replace(CHECKOUT_URL + window.location.search);
+    }
+  </script>
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="../index.html"><img src="../images/pmworks-logo.jpg" alt="PMWorks — Productivity by design" /></a>
+    <nav>
+      <a href="../download.html">Download</a>
+      <a href="https://github.com/petrmuselik/pmworks/discussions">Discussions</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Buy Desco</h1>
+      <p class="lede">Purchasing opens soon. Desco is in closed beta — thanks for your interest!</p>
+      <p>Questions or feedback? Join the <a href="https://github.com/petrmuselik/pmworks/discussions">Discussions</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
