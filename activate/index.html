@@ -34,8 +34,8 @@
 
   <script>
     // Runs entirely in your browser: reads the key Dodo Payments added to this page's
-    // address and hands it to the Desco app via its desco:// link. Nothing is sent
-    // anywhere and nothing is stored.
+    // address and hands it to the Desco app via its desco:// link. This script sends
+    // nothing anywhere and stores nothing (the page request itself reaches GitHub Pages).
     (function () {
       var raw = new URLSearchParams(window.location.search).get("license_key") || "";
       var key = raw.split(/[\s,]+/).filter(Boolean)[0] || "";
