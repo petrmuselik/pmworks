@@ -19,8 +19,14 @@
       family: "",
       company: ""
     };
-    var tier = new URLSearchParams(window.location.search).get("tier") || "single";
-    var url = CHECKOUT_URLS[tier];
+    // Dodo TEST-mode links, used only when the address has ?test=1 (Debug builds of the
+    // app open this page that way, so the whole Buy flow can be tried without real money).
+    var TEST_CHECKOUT_URLS = {
+      single: "https://dodo.pe/desco-single-e2e"
+    };
+    var params = new URLSearchParams(window.location.search);
+    var tier = params.get("tier") || "single";
+    var url = params.get("test") === "1" ? TEST_CHECKOUT_URLS[tier] : CHECKOUT_URLS[tier];
     if (url) {
       window.location.replace(url);
     }
