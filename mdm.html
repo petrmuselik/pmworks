@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deploying Desco licenses with MDM — Desco</title>
+  <meta name="description" content="Activate Desco on many Macs without touching each device." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="index.html"><img src="images/pmworks-logo.jpg" alt="PMWorks — Productivity by design" /></a>
+    <nav>
+      <a href="download.html">Download</a>
+      <a href="https://github.com/petrmuselik/pmworks/discussions">Discussions</a>
+    </nav>
+  </header>
+
+  <main class="legal">
+    <h1>Deploying Desco licenses with MDM</h1>
+    <p>IT admins can activate Desco on many Macs without touching each one. Buy a
+    license (for example <a href="editions.html">Company, 100 Macs</a>), then push the key in a
+    configuration profile. Desco activates silently the next time it launches.</p>
+
+    <h2>Steps</h2>
+    <ol>
+      <li>Download the example profile: <a href="desco-license.mobileconfig">desco-license.mobileconfig</a>.</li>
+      <li>Replace <code>PUT-YOUR-LICENSE-KEY-HERE</code> with your license key and give both
+      <code>PayloadUUID</code> values fresh UUIDs.</li>
+      <li>Upload the profile to your MDM (Jamf, Kandji, Mosyle, and others) and scope it to your Macs.</li>
+    </ol>
+    <p>The profile sets the managed preference <code>LicenseKey</code> in the preference domain
+    <code>dev.petrmuselik.desco</code>. Only a <em>managed</em> (forced) value is honored.</p>
+
+    <h2>What to expect</h2>
+    <ul>
+      <li>Each Mac that activates uses one seat of the key; reinstalling on the same Mac reuses it.</li>
+      <li>Activation needs internet access to Dodo Payments once. If a Mac is offline at launch, Desco
+      simply tries again on the next launch.</li>
+      <li>No dialog is shown to the user. Desco never locks because it is offline.</li>
+    </ul>
+    <p class="muted">Questions? Petr Muselík · muselik+desco@gmail.com</p>
+  </main>
+
+  <footer class="site">
+    <p>© 2026 Petr Muselík · PMWorks</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms &amp; License</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refunds.html">Refunds</a>
+      <a href="editions.html">Editions</a>
+    </nav>
+  </footer>
+</body>
+</html>

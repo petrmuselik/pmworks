@@ -8,14 +8,21 @@
   <link rel="stylesheet" href="../style.css" />
   <script>
     // Stable checkout entry point. The app's "Buy" button opens this page
-    // (Desco Constants.Purchase.checkoutURL), so the store link can change —
+    // (Desco Constants.Purchase.checkoutURL), so the checkout links can change —
     // test → live, new product — without shipping a new app build.
-    // PLACEHOLDER: paste the Lemon Squeezy checkout link here once it exists,
-    // e.g. "https://pmworks.lemonsqueezy.com/buy/<variant-id>".
-    var CHECKOUT_URL = "";
-    if (CHECKOUT_URL) {
-      // Pass any query through (e.g. a discount code) to the checkout.
-      window.location.replace(CHECKOUT_URL + window.location.search);
+    // The default (no ?tier=) is the Single license. Each value is the Dodo Payments
+    // checkout link for that tier (quantity locked to 1, redirect_url = ../activate/).
+    // Empty = not on sale yet (the page below says so).
+    var CHECKOUT_URLS = {
+      single: "",
+      personal: "",
+      family: "",
+      company: ""
+    };
+    var tier = new URLSearchParams(window.location.search).get("tier") || "single";
+    var url = CHECKOUT_URLS[tier];
+    if (url) {
+      window.location.replace(url);
     }
   </script>
 </head>

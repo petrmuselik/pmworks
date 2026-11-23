@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Example configuration profile: silently activates Desco on managed Macs.
+     Replace PUT-YOUR-LICENSE-KEY-HERE and generate fresh UUIDs for both
+     PayloadUUID values before deploying. Works with any MDM (Jamf, Kandji, Mosyle, …). -->
+<plist version="1.0">
+<dict>
+  <key>PayloadType</key><string>Configuration</string>
+  <key>PayloadVersion</key><integer>1</integer>
+  <key>PayloadIdentifier</key><string>dev.petrmuselik.desco.license</string>
+  <key>PayloadUUID</key><string>REPLACE-WITH-A-NEW-UUID-1</string>
+  <key>PayloadDisplayName</key><string>Desco license</string>
+  <key>PayloadScope</key><string>System</string>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key><string>com.apple.ManagedClient.preferences</string>
+      <key>PayloadVersion</key><integer>1</integer>
+      <key>PayloadIdentifier</key><string>dev.petrmuselik.desco.license.prefs</string>
+      <key>PayloadUUID</key><string>REPLACE-WITH-A-NEW-UUID-2</string>
+      <key>PayloadDisplayName</key><string>Desco license key</string>
+      <key>PayloadContent</key>
+      <dict>
+        <key>dev.petrmuselik.desco</key>
+        <dict>
+          <key>Forced</key>
+          <array>
+            <dict>
+              <key>mcx_preference_settings</key>
+              <dict>
+                <key>LicenseKey</key><string>PUT-YOUR-LICENSE-KEY-HERE</string>
+              </dict>
+            </dict>
+          </array>
+        </dict>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>

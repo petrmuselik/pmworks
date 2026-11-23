@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Activate Desco — PMWorks</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="../index.html"><img src="../images/pmworks-logo.jpg" alt="PMWorks — Productivity by design" /></a>
+    <nav>
+      <a href="../download.html">Download</a>
+      <a href="https://github.com/petrmuselik/pmworks/discussions">Discussions</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Thank you!</h1>
+      <p class="lede" id="msg">Opening Desco to activate your license…</p>
+      <p id="actions" hidden><a id="open" href="#">Open Desco</a></p>
+      <div id="keybox" hidden>
+        <p>Your license key (also in your receipt email):</p>
+        <p><code id="key"></code> <button id="copy" type="button">Copy</button></p>
+        <p class="muted">If Desco doesn’t open, open it, choose <strong>Enter license key</strong>,
+        and paste this key.</p>
+      </div>
+      <p id="nokey" hidden>No license key found in this link. Open Desco and choose
+      <strong>Enter license key</strong>, then paste the key from your receipt email.</p>
+    </section>
+  </main>
+
+  <script>
+    // Runs entirely in your browser: reads the key Dodo Payments added to this page's
+    // address and hands it to the Desco app via its desco:// link. Nothing is sent
+    // anywhere and nothing is stored.
+    (function () {
+      var raw = new URLSearchParams(window.location.search).get("license_key") || "";
+      var key = raw.split(/[\s,]+/).filter(Boolean)[0] || "";
+      if (!key) {
+        document.getElementById("msg").textContent = "Almost there.";
+        document.getElementById("nokey").hidden = false;
+        return;
+      }
+      var link = "desco://activate?key=" + encodeURIComponent(key);
+      var open = document.getElementById("open");
+      open.href = link;
+      document.getElementById("key").textContent = key;
+      document.getElementById("actions").hidden = false;
+      document.getElementById("keybox").hidden = false;
+      document.getElementById("copy").addEventListener("click", function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(key);
+      });
+      window.location.href = link;
+    })();
+  </script>
+</body>
+</html>
